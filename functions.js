@@ -203,7 +203,14 @@ Output:
 */
 
 export function getCoolFactorsByAgeBracket(customers) {
-    return true;
+    const note = {};
+    customers.map(customer => {
+        const bracket = Math.floor(customer.age / 10) * 10;
+        note[bracket]
+        ? note[bracket].push(customer.cool_factor)
+        : note[bracket] = [customer.cool_factor]
+    })
+    return note;
 }
 
 
