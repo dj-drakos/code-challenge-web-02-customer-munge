@@ -236,11 +236,112 @@ test('getGenderBreakdownOfEachCar', (expect) => {
 });
 
 test('getAllCoolFactorsOfEachCar', (expect) => {
-    const expected = true;
+    const expected = 	
+    {
+    "Alfa Romeo": [
+        6
+    ],
+    "Audi": [
+        1
+    ],
+    "BMW": [
+        5
+    ],
+    "Buick": [
+        4,
+        3
+    ],
+    "Cadillac": [
+        7,
+        1
+    ],
+    "Chevrolet": [
+        8,
+        9,
+        2,
+        1
+    ],
+    "Chrysler": [
+        4,
+        9
+    ],
+    "Dodge": [
+        10,
+        8,
+        10
+    ],
+    "Eagle": [
+        9
+    ],
+    "Ford": [
+        5,
+        2,
+        10
+    ],
+    "GMC": [
+        6,
+        6,
+        10,
+        8
+    ],
+    "Infiniti": [
+        2
+    ],
+    "Jeep": [
+        5
+    ],
+    "Kia": [
+        2
+    ],
+    "Lexus": [
+        4
+    ],
+    "Mazda": [
+        3
+    ],
+    "Mercedes-Benz": [
+        3
+    ],
+    "Mercury": [
+        2
+    ],
+    "Mitsubishi": [
+        4
+    ],
+    "Oldsmobile": [
+        5
+    ],
+    "Peugeot": [
+        1
+    ],
+    "Pontiac": [
+        8
+    ],
+    "Porsche": [
+        8,
+        7
+    ],
+    "Scion": [
+        2
+    ],
+    "Subaru": [
+        2
+    ],
+    "Toyota": [
+        1,
+        8,
+        2,
+        3
+    ],
+    "Volvo": [
+        9,
+        4
+    ]
+    };
 
     const actual = getAllCoolFactorsOfEachCar(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
 skip('getAverageCoolFactorOfEachCar', (expect) => {
