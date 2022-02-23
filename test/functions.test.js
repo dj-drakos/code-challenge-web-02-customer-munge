@@ -108,7 +108,13 @@ test('getAverageCoolFactor', (expect) => {
 });
 
 test('getTotalOfEachGender', (expect) => {
-    const expected = {'Male': 23, 'Female': 19, 'Genderqueer': 1, 'Non-binary': 1, 'Bigender': 1};
+    const expected = {
+        'Male': 23, 
+        'Female': 19, 
+        'Genderqueer': 1, 
+        'Non-binary': 1, 
+        'Bigender': 1
+    };
 
     const actual = getTotalOfEachGender(customers);
 
@@ -117,16 +123,13 @@ test('getTotalOfEachGender', (expect) => {
 
 test('getGenderBreakdownOfFordOwners', (expect) => {
     const expected = {
-        Male: 23, 
-        Female: 19, 
-        Genderqueer: 1, 
-        'Non-binary': 1, 
-        Bigender: 1
+        "Female": 1,
+        "Male": 2
     };
 
     const actual = getGenderBreakdownOfFordOwners(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
 skip('getGenderBreakdownOfEachCar', (expect) => {
