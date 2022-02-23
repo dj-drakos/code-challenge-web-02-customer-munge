@@ -57,7 +57,6 @@ export function getTotalOfEachGender(customers) {
         ? hash[customer.gender]++
         : hash[customer.gender] = 1;
     });
-    console.log(hash);
     return hash;
 }
 
@@ -104,7 +103,18 @@ Output:
 */
 
 export function getGenderBreakdownOfEachCar(customers) {
-    return true;
+    return customers.reduce((acc, curr) => {
+        if (acc[curr.car_make]) {
+            acc[curr.car_make][curr.gender] 
+            ? acc[curr.car_make][curr.gender]++
+            : acc[curr.car_make][curr.gender] = 1
+        }
+        else {
+            acc[curr.car_make] = {};
+            acc[curr.car_make][curr.gender] = 1;
+        }
+        return acc;
+    }, {});
 }
 
 /* 
