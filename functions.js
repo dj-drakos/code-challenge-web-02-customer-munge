@@ -27,7 +27,7 @@ Output:
 */
 
 export function addAllAges(customers) {
-    return true;
+    return  customers.reduce((agesTotal, customer) => agesTotal + customer.age, 0);
 }
 
 /* 
