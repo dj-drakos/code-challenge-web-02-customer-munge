@@ -383,11 +383,23 @@ test('getAverageCoolFactorOfEachCar', (expect) => {
 });
 
 test('makeAgeBrackets', (expect) => {
-    const expected = true;
+    const expected = {
+        "0": 6,
+        "10": 8,
+        "100": 2,
+        "20": 2,
+        "30": 7,
+        "40": 2,
+        "50": 5,
+        "60": 1,
+        "70": 3,
+        "80": 2,
+        "90": 7
+};
 
     const actual = makeAgeBrackets(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
 skip('getAverageCoolFactor', (expect) => {
