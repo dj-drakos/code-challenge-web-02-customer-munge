@@ -129,7 +129,13 @@ Output:
 
 
 export function getAllCoolFactorsOfEachCar(customers) {
-    return true;
+    return customers.reduce((acc, curr) => {
+        if (!acc[curr.car_make]) {
+            acc[curr.car_make] = [];
+        }
+            acc[curr.car_make].push(curr.cool_factor);
+        return acc;
+    }, {});
 }
 
 /* 
