@@ -51,7 +51,14 @@ Output:
 */
 
 export function getTotalOfEachGender(customers) {
-    return true;
+    const hash = {};
+    customers.map(customer => {
+        hash[customer.gender]
+        ? hash[customer.gender]++
+        : hash[customer.gender] = 1;
+    });
+    console.log(hash);
+    return hash;
 }
 
 /* 
