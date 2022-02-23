@@ -404,11 +404,80 @@ test('makeAgeBrackets', (expect) => {
 });
 
 test('getCoolFactorsByAgeBracket', (expect) => {
-    const expected = true;
+    const expected = 	
+    {
+    "0": [
+        4,
+        1,
+        3,
+        9,
+        10,
+        8
+    ],
+    "10": [
+        6,
+        2,
+        10,
+        7,
+        3,
+        1,
+        8,
+        3
+    ],
+    "100": [
+        8,
+        5
+    ],
+    "20": [
+        10,
+        5
+    ],
+    "30": [
+        4,
+        9,
+        9,
+        8,
+        2,
+        5,
+        2
+    ],
+    "40": [
+        2,
+        6
+    ],
+    "50": [
+        5,
+        4,
+        6,
+        3,
+        10
+    ],
+    "60": [
+        8
+    ],
+    "70": [
+        4,
+        4,
+        2
+    ],
+    "80": [
+        2,
+        2
+    ],
+    "90": [
+        9,
+        2,
+        8,
+        1,
+        1,
+        1,
+        7
+    ]
+    };
 
     const actual = getCoolFactorsByAgeBracket(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
 skip('getAverageCoolFactorByAgeBracket', (expect) => {
