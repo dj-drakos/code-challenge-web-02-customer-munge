@@ -6,7 +6,7 @@ import customers from './data.js';
 
 const { test, skip } = QUnit;
 
-skip('greetUsers', (expect) => {
+test('greetUsers', (expect) => {
     const expected = true;
 
     const actual = greetUsers();
