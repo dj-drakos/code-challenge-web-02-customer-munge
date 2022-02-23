@@ -227,6 +227,16 @@ Output:
 */
 
 export function getAverageCoolFactorByAgeBracket(customers) {
-    return true;
+    const note = {};
+    customers.map(customer => {
+        const bracket = Math.floor(customer.age / 10) * 10;
+        note[bracket]
+        ? note[bracket].push(customer.cool_factor)
+        : note[bracket] = [customer.cool_factor]
+    })
+    return Object.entries(note).reduce((acc, entry) => {
+        const entryAvg =  (entry[1].reduce((acc, curr) => acc + curr, 0) / entry[1].length).toFixed(1);
+        return {...acc, [entry[0]] : entryAvg};
+    }, {});
 }
 
