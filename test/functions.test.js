@@ -116,7 +116,13 @@ test('getTotalOfEachGender', (expect) => {
 });
 
 test('getGenderBreakdownOfFordOwners', (expect) => {
-    const expected = true;
+    const expected = {
+        Male: 23, 
+        Female: 19, 
+        Genderqueer: 1, 
+        'Non-binary': 1, 
+        Bigender: 1
+    };
 
     const actual = getGenderBreakdownOfFordOwners(customers);
 
