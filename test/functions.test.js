@@ -482,9 +482,21 @@ test('getCoolFactorsByAgeBracket', (expect) => {
 });
 
 test('getAverageCoolFactorByAgeBracket', (expect) => {
-    const expected = true;
+    const expected = {
+        "0": "5.8",
+        "10": "5.0",
+        "100": "6.5",
+        "20": "7.5",
+        "30": "5.6",
+        "40": "4.0",
+        "50": "5.6",
+        "60": "8.0",
+        "70": "3.3",
+        "80": "2.0",
+        "90": "4.1"
+};
 
     const actual = getAverageCoolFactorByAgeBracket(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
