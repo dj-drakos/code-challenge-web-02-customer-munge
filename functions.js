@@ -4,7 +4,7 @@ Output:
 */
 
 export function greetUsers(customers) {
-    return true;
+    return customers.map(customer => `Hello ${customer.first_name} ${customer.last_name}`);
 }
 
 /* 
@@ -27,7 +27,7 @@ Output:
 */
 
 export function addAllAges(customers) {
-    return true;
+    return  customers.reduce((agesTotal, customer) => agesTotal + customer.age, 0);
 }
 
 /* 
@@ -36,7 +36,8 @@ Output:
 */
 
 export function getAverageCoolFactor(customers) {
-    return true;
+    const avg = customers.reduce((totalCoolFactor, customer) => totalCoolFactor + customer.cool_factor, 0) / customers.length
+    return avg.toFixed(1);
 }
 
 /* 
@@ -50,7 +51,13 @@ Output:
 */
 
 export function getTotalOfEachGender(customers) {
-    return true;
+    const hash = {};
+    customers.map(customer => {
+        hash[customer.gender]
+        ? hash[customer.gender]++
+        : hash[customer.gender] = 1;
+    });
+    return hash;
 }
 
 /* 
@@ -64,7 +71,14 @@ Output:
 */
 
 export function getGenderBreakdownOfFordOwners(customers) {
-    return true;
+    const hash = {};
+    const fordData = customers.filter(customer => customer.car_make === 'Ford');
+    fordData.map(owner => {
+        hash[owner.gender]
+        ? hash[owner.gender]++
+        : hash[owner.gender] = 1
+    })
+    return hash;
 }
 
 //////////////////////////////////////////////////////////
@@ -89,7 +103,18 @@ Output:
 */
 
 export function getGenderBreakdownOfEachCar(customers) {
-    return true;
+    return customers.reduce((acc, curr) => {
+        if (acc[curr.car_make]) {
+            acc[curr.car_make][curr.gender] 
+            ? acc[curr.car_make][curr.gender]++
+            : acc[curr.car_make][curr.gender] = 1
+        }
+        else {
+            acc[curr.car_make] = {};
+            acc[curr.car_make][curr.gender] = 1;
+        }
+        return acc;
+    }, {});
 }
 
 /* 
@@ -104,7 +129,13 @@ Output:
 
 
 export function getAllCoolFactorsOfEachCar(customers) {
-    return true;
+    return customers.reduce((acc, curr) => {
+        if (!acc[curr.car_make]) {
+            acc[curr.car_make] = [];
+        }
+            acc[curr.car_make].push(curr.cool_factor);
+        return acc;
+    }, {});
 }
 
 /* 
@@ -117,7 +148,18 @@ Output:
 */
 
 export function getAverageCoolFactorOfEachCar(customers) {
-    return true;
+    const coolFactorsByMake =  customers.reduce((acc, customer) => {
+        if (!acc[customer.car_make]) {
+            acc[customer.car_make] = [];
+        }
+            acc[customer.car_make].push(customer.cool_factor);
+        return acc;
+    }, {});
+
+    return Object.entries(coolFactorsByMake).reduce((acc, entry) => {
+        const entryAvg =  (entry[1].reduce((acc, curr) => acc + curr, 0) / entry[1].length).toFixed(1);
+        return {...acc, [entry[0]] : entryAvg};
+    }, {});
 }
 
 
@@ -138,7 +180,14 @@ Output:
 */
 
 export function makeAgeBrackets(customers) {
-    return true;
+    const note = {};
+    customers.map(customer => {
+        const bracket = Math.floor(customer.age / 10) * 10;
+        note[bracket] 
+        ? note[bracket]++
+        : note[bracket] = 1;
+    })
+    return note;
 }
 
 /* 
@@ -154,7 +203,14 @@ Output:
 */
 
 export function getCoolFactorsByAgeBracket(customers) {
-    return true;
+    const note = {};
+    customers.map(customer => {
+        const bracket = Math.floor(customer.age / 10) * 10;
+        note[bracket]
+        ? note[bracket].push(customer.cool_factor)
+        : note[bracket] = [customer.cool_factor]
+    })
+    return note;
 }
 
 
@@ -171,6 +227,16 @@ Output:
 */
 
 export function getAverageCoolFactorByAgeBracket(customers) {
-    return true;
+    const note = {};
+    customers.map(customer => {
+        const bracket = Math.floor(customer.age / 10) * 10;
+        note[bracket]
+        ? note[bracket].push(customer.cool_factor)
+        : note[bracket] = [customer.cool_factor]
+    })
+    return Object.entries(note).reduce((acc, entry) => {
+        const entryAvg =  (entry[1].reduce((acc, curr) => acc + curr, 0) / entry[1].length).toFixed(1);
+        return {...acc, [entry[0]] : entryAvg};
+    }, {});
 }
 
